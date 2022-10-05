@@ -13,7 +13,7 @@ var app = express();
 // This code creates the default connection to the database and binds to the error 
 // event (so that errors will be printed to the console).
 const mongoose = require("mongoose");
-const mongoDB = "mongodb+srv://m001-student:m001-mongodb-basics@sandbox.8rhlmkj.mongodb.net/?retryWrites=true&w=majority";
+const mongoDB = "mongodb+srv://m001-student:m001-mongodb-basics@sandbox.8rmongodb+srv://andreudotai:mineshadow@cluster0.r368mde.mongodb.net/?retryWrites=true&w=majorityhlmkj.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error"));
