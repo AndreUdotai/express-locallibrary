@@ -9,9 +9,12 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog'); //Import routes for "catalog" area of site
 const compression = require("compression"); //Import compression to compress the HTTP response sent back to a client
+const helmet = require("helmet");
 
 var app = express();
 
+//set appropriate HTTP headers that help protect your app from well-known web vulnerabilities
+app.use(helmet());
 // Set up mongoose connection
 // This code creates the default connection to the database and binds to the error
 // event (so that errors will be printed to the console).
