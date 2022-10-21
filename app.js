@@ -4,9 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog'); //Import routes for "catalog" area of site
+const compression = require("compression"); //Import compression to compress the HTTP response sent back to a client
 
 var app = express();
 
@@ -31,6 +33,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(compression()); // Compress all routes
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
