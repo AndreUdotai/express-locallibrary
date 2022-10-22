@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-require('dotenv').config();
 
 
 var indexRouter = require('./routes/index');
@@ -20,7 +19,7 @@ app.use(helmet());
 // This code creates the default connection to the database and binds to the error
 // event (so that errors will be printed to the console).
 var mongoose = require('mongoose');
-var mongoDB = process.env.MONGODB_URI || process.env.MY_MONGODB_URI
+var mongoDB = process.env.MONGODB_URI || 'mongodb+srv://andreudotai:mineshadow@cluster0.r368mde.mongodb.net/local_library?retryWrites=true&w=majority'
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error'));
