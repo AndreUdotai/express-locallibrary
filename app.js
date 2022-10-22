@@ -18,12 +18,8 @@ app.use(helmet());
 // Set up mongoose connection
 // This code creates the default connection to the database and binds to the error
 // event (so that errors will be printed to the console).
-const mongoose = require('mongoose');
-
-const dev_db_url =
-'mongodb+srv://andreudotai:mineshadow@cluster0.r368mde.mongodb.net/local_library?retryWrites=true&w=majority';
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
-
+var mongoose = require('mongoose');
+var mongoDB = process.env.MONGODB_URI || 'mongodb+srv://andreudotai:mineshadow@cluster0.r368mde.mongodb.net/local_library?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error'));
