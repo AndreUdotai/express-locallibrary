@@ -241,7 +241,7 @@ exports.book_delete_post = (req, res) => {
       },
       (err, results) => {
         if(err) {
-          return nexxt(err);
+          return next(err);
         }
         // Success
         if (results.books_bookinstances.length > 0) {
